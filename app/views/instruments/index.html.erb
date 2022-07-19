@@ -1,0 +1,16 @@
+
+<br>
+<p class="font-black xl:text-5xl text-center">Guitar's</p>
+
+<div id="instruments">
+  <% @instruments.each do |instrument| %>
+    <%= render instrument %>
+    <p class="flex items-center justify-center">
+      <%= link_to "Show this instrument", instrument, class:"text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" %>
+    </p>
+  <% end %>
+</div><br>
+<p class="flex items-center justify-center">
+<%= link_to "New instrument", new_instrument_path, class:"text-white bg-teal-500 border-0 py-2 px-6 focus:outline-none hover:bg-teal-600 rounded" %>
+</p><br><br><br>
+
