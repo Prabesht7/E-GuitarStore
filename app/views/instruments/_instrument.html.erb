@@ -1,0 +1,49 @@
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto" id="<%= dom_id instrument %>">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest"><%= instrument.brand %></h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-4"><%= instrument.title %></h1>
+        <div class="flex mb-4">
+          <a class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1">Description</a>
+          <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Reviews</a>
+          <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Details</a>
+        </div>
+        <p class="leading-relaxed mb-4"><%= instrument.description %></p>
+        <div class="flex border-t border-gray-200 py-2">
+          <span class="text-gray-500">Brand</span>
+          <span class="ml-auto text-gray-900"><%= instrument.brand %></span>
+        </div>
+        <div class="flex border-t border-gray-200 py-2">
+          <span class="text-gray-500">Color</span>
+          <span class="ml-auto text-gray-900"><%= instrument.color %></span>
+        </div>
+        <div class="flex border-t border-gray-200 py-2">
+          <span class="text-gray-500">Condition</span>
+          <span class="ml-auto text-gray-900"><%= instrument.condition %></span>
+        </div>
+         <div class="flex border-t border-gray-200 py-2">
+          <span class="text-gray-500">Posted By</span>
+          <span class="ml-auto text-gray-900"><%= instrument.user.name %></span>
+        </div>
+        
+        <div class="flex">
+          <span class="title-font font-medium text-2xl text-gray-900"><%= number_to_currency(instrument.price) %></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; <%= button_to 'Add to Cart', line_items_path(instrument_id: @instrument), class:"flex ml-auto text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded" %>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+              <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>1.2K
+            </span>
+
+        </div>
+      </div>
+      <p class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded">
+    <%# <%= image_tag(@instrument.image_url(:default)) %> 
+    <%= image_tag instrument.image_url(:default).to_s %>
+  </p>
+    </div>
+  </div>
+</section>

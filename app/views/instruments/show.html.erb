@@ -1,0 +1,9 @@
+<br>
+<p class="font-black xl:text-5xl text-center"><%= @instrument.title%>- Guitar</p>
+<%= render @instrument %>
+
+<div class="flex items-center justify-center" >
+  <%= link_to "Edit this instrument", edit_instrument_path(@instrument), class:"text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" %> |
+  <%= link_to "Back to instruments", instruments_path , class:"text-white bg-teal-500 border-0 py-2 px-6 focus:outline-none hover:bg-teal-600 rounded"%> |
+<%= button_to "Destroy this instrument", @instrument, method: :delete , class:"text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"%>
+</div><br><br><br>

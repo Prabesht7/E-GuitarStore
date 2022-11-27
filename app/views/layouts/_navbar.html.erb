@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <%= stylesheet_link_tag "header.css" %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Guitar Store</div>
+      <input type="checkbox" id="click">
+      <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <ul>
+        <li><%= link_to "Home", root_path%></li>
+       
+       
+       <% if user_signed_in? %>
+       
+       <li> <%= link_to "Edit Profile", edit_user_registration_path %> </li>
+       <li> <%= link_to "Sell Guitar", new_instrument_path %> </li>
+       <li> <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete %> </li>
+       <% else %>
+       <li> <%= link_to "Sign Up", new_user_registration_path %> </li>
+       <li> <%= link_to "Sign In", new_user_session_path %> </li>
+       <% end %>
+      </ul>
+    </nav>
+
+  </body>
+</html>
